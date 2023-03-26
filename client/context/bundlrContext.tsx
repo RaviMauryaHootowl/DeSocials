@@ -8,7 +8,7 @@ const BundlrContext = createContext({
   initialiseBundlr: async () => {},
   fundWallet: (_: number) => {},
   balance: "",
-  uploadFile: async (_file: any) => {},
+  uploadFile: async (_file: any):Promise<any> => {},
   bundlrInstance: null,
 });
 
