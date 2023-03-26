@@ -60,6 +60,7 @@ const PostContainer = ({ toggle, selectedPost }: PostContainerProps) => {
   const [comments, setComments] = useState<IComment[] | undefined>();
 
   const [comment, setComment] = useState<string | undefined>("");
+  const [donateAmt, setDonateAmt] = useState<any>("");
 
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -131,6 +132,28 @@ const PostContainer = ({ toggle, selectedPost }: PostContainerProps) => {
     getComments();
   }, [getComments]);
 
+
+  const handleDonateAmt = () => {
+    try{
+      const provider = new ethers.providers.Web3Provider(
+        window.ethereum as MetaMaskInpageProvider | any
+      );
+  
+      const signer = provider.getSigner();
+      const tx = {
+        from: signer.getAddress(),
+        to: selectedPost!.user,
+        value: ethers.utils.parseEther(donateAmt),
+      };
+      signer.sendTransaction(tx).then((transaction) => {
+        console.dir(transaction)
+        toast.success(`Donated ${donateAmt} MATIC to creator ${selectedPost!.user}`);
+      });
+    }catch(e){
+      console.log(e);
+    }
+  }
+
   return (
     <div className="w-full h-full  backdrop-blur-lg bg-black/50 flex items-center justify-center font-body ">
       <Head>
@@ -191,6 +214,22 @@ const PostContainer = ({ toggle, selectedPost }: PostContainerProps) => {
             <button
               className="flex items-center justify-center bg-[#1E50FF] rounded-lg px-2 py-1 cursor-pointer transition duration-250 ease-in-out hover:scale-115 hover:drop-shadow-xl hover:shadow-sky-600 my-[15px] w-fit"
               onClick={handleCommentUpload}
+            >
+              <Send2 size="32" color="#d9e3f0" />
+            </button>
+          </div>
+            <h2>Donate to the creator</h2>
+          <div className="flex items-center justify-between">
+            <input
+              className="w-[90%] px-5 py-3 sm:w-[85%] rounded-xl placeholder:text-slate-400 bg-[#272D37]/60  outline-none placeholder:font-body tx font-body border-solid border-2 border-sky-700"
+              placeholder="Enter amount in MATIC"
+              value={donateAmt}
+              onChange={(e) => setDonateAmt(e.target.value)}
+            />
+
+            <button
+              className="flex items-center justify-center bg-[#1E50FF] rounded-lg px-2 py-1 cursor-pointer transition duration-250 ease-in-out hover:scale-115 hover:drop-shadow-xl hover:shadow-sky-600 my-[15px] w-fit"
+              onClick={handleDonateAmt}
             >
               <Send2 size="32" color="#d9e3f0" />
             </button>
