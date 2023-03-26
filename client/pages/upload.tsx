@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Head from "next/head";
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";

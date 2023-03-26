@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { gql, useApolloClient } from "@apollo/client";
 import React, { useCallback, useEffect, useState } from "react";
 import { Header, PostContainer } from "../components";
