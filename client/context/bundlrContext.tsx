@@ -94,6 +94,7 @@ const BundlrContextProvider = ({ children }: any): JSX.Element => {
       return tx;
     } catch (error) {
       toast.error("Something went wrong!");
+      return null;
     }
   }
 
