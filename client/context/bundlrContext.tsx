@@ -9,7 +9,7 @@ const BundlrContext = createContext({
   fundWallet: (_: number) => {},
   balance: "",
   uploadFile: async (_file: any):Promise<any> => {},
-  bundlrInstance: null,
+  bundlrInstance: undefined,
 });
 
 const BundlrContextProvider = ({ children }: any): JSX.Element => {
