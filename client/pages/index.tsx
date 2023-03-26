@@ -21,7 +21,9 @@ const Home: NextPage = () => {
         method: "eth_requestAccounts",
       });
       setIsWalletConnected(true);
-      localStorage.setItem("walletAddress", accounts[0]);
+      if(accounts && accounts.length > 0){
+        localStorage.setItem("walletAddress", accounts[0]);
+      }
       router.push("/dashboard");
     } catch (error) {
       console.log(error);
