@@ -142,7 +142,7 @@ const Upload = () => {
   if (
     !balance ||
     (Number(balance) <= 0 && !balance) ||
-    Number(balance) <= 0.06
+    Number(balance) <= 0.01
   ) {
     return (
       <div className="flex flex-col items-center justify-center h-screen ">
@@ -151,7 +151,7 @@ const Upload = () => {
           <link rel="icon" href="/logo-main.png" />
         </Head>
         <h3 className="text-4xl font-body text-center">
-          Oops! Before Uploading Post Please Add Some Funds.🪙
+          Hey, To Upload a post you need to add funds. 🪙
         </h3>
         <FundWallet />
       </div>

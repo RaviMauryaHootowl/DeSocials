@@ -86,7 +86,7 @@ const toggle = () => setIsOpen(!isOpen);
 
       <Header />
 
-      <div className="w-[705px] h-[405px] absolute left-[-353px] top-[-198px] bg-blue-800/50 blur-[150px] rounded-full"></div>
+      <div className="w-[705px] h-[405px] absolute left-[-353px] top-[-198px] bg-purple-800/50 blur-[150px] rounded-full"></div>
 
       <div>
         <div className="flex gap-5 max-w-[1240px] mx-auto my-20 items-center justify-center ">
