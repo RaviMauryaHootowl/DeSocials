@@ -80,7 +80,7 @@ const toggle = () => setIsOpen(!isOpen);
   return (
     <div className="font-body relative">
       <Head>
-        <title>Decentragram</title>
+        <title>DeSocials</title>
         <link rel="icon" href="/logo.png" />
       </Head>
 
