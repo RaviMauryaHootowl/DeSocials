@@ -17,14 +17,14 @@ const Home: NextPage = () => {
         alert("Please Install Metamask");
         return;
       }
-      const accounts = await ethereum.request({
+      const accounts:any = await ethereum.request({
         method: "eth_requestAccounts",
       });
       setIsWalletConnected(true);
       if(accounts){
         localStorage.setItem("walletAddress", accounts[0]);
+        router.push("/dashboard");
       }
-      router.push("/dashboard");
     } catch (error) {
       console.log(error);
       toast.error("Can't Connect to Wallet");
