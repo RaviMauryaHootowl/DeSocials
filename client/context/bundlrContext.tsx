@@ -9,11 +9,11 @@ const BundlrContext = createContext({
   fundWallet: (_: number) => {},
   balance: "",
   uploadFile: async (_file: any):Promise<any> => {},
-  bundlrInstance: undefined,
+  bundlrInstance: null,
 });
 
 const BundlrContextProvider = ({ children }: any): JSX.Element => {
-  const [bundlrInstance, setBundlrInstance] = useState<WebBundlr>();
+  const [bundlrInstance, setBundlrInstance] = useState<any>();
   const [balance, setBalance] = useState<string>("");
 
   useEffect(() => {
